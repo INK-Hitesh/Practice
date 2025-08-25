@@ -23,6 +23,8 @@ pageextension 50110 INK_Customer extends "Customer Card"
             }
         }
         #region task 126
+
+        
         modify("Country/Region Code")
         {
             ShowMandatory = true;
