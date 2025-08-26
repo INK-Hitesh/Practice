@@ -58,12 +58,14 @@ pageextension 50110 INK_Customer extends "Customer Card"
     }
     actions
     {
-        addlast(Processing)
+        addlast(History)
         {
             action(GenerateCopilotJobProposal)
             {
                 Caption = 'Generate Copilot Job Proposal';
-                Image = Information;
+                Image = NewSparkle;
+                ApplicationArea = All;
+                ToolTip = 'Generate a job proposal using Copilot for the selected customer.';
                 trigger OnAction()
                 var
                     GenerateJobProposal: Codeunit "Generate Job Proposal";
@@ -84,15 +86,6 @@ pageextension 50110 INK_Customer extends "Customer Card"
         }
     }
 
-
-    trigger OnQueryClosePage(CloseAction: Action): Boolean
-    begin
-        if Rec."No." <> '' then begin
-            Rec.TestField("Phone No.");
-        end;
-    end;
-
     var
         AdditionalEmail: Text;
-
 }
