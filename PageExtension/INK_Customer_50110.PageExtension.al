@@ -24,7 +24,7 @@ pageextension 50110 INK_Customer extends "Customer Card"
         }
         #region task 126
 
-        
+
         modify("Country/Region Code")
         {
             ShowMandatory = true;
@@ -54,22 +54,38 @@ pageextension 50110 INK_Customer extends "Customer Card"
             ShowMandatory = Rec."Gen. Bus. Posting Group" = 'EUROPE';
         }
         #endregion
+
     }
-
-    trigger OnAfterGetRecord()
-    begin
-        // AdditionalEmail := Rec.GetAdditionalEmail();
-
-    end;
-
-    trigger OnQueryClosePage(CloseAction: Action): Boolean
-    begin
-        if Rec."No." <> '' then begin
-            Rec.TestField("Phone No.");
-        end;
-    end;
+    actions
+    {
+        addlast(History)
+        {
+            action(GenerateCopilotJobProposal)
+            {
+                Caption = 'Generate Copilot Job Proposal';
+                Image = NewSparkle;
+                ApplicationArea = All;
+                ToolTip = 'Generate a job proposal using Copilot for the selected customer.';
+                trigger OnAction()
+                var
+                    GenerateJobProposal: Codeunit "Generate Job Proposal";
+                    SaveCopilotJobProposal: Codeunit "Save Copilot Job Proposal";
+                    CopilotJobProposal: Record "Copilot Job Proposal" temporary;
+                begin
+                    // Prompt can be customized or taken from user input
+                    GenerateJobProposal.SetUserPrompt('Create a job proposal for customer ' + Rec."No.");
+                    if GenerateJobProposal.ExecuteProposalGeneration() then begin
+                        GenerateJobProposal.GetResult(CopilotJobProposal);
+                        // Save the generated proposal for the selected customer
+                        SaveCopilotJobProposal.Save(Rec."No.", CopilotJobProposal);
+                        Message('Copilot job proposal generated and saved for customer %1.', Rec."No.");
+                    end else
+                        Error('No prompt provided. Proposal generation failed.');
+                end;
+            }
+        }
+    }
 
     var
         AdditionalEmail: Text;
-
 }
