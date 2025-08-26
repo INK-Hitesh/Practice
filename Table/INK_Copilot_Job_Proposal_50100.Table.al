@@ -33,4 +33,16 @@ table 50101 "Copilot Job Proposal"
             Clustered = true;
         }
     }
+    trigger OnInsert()
+    var
+        NoSeriesMgt: Codeunit NoSeriesManagement;
+        NewNo: Code[20];
+        SeriesCode: Code[20];
+        SeriesName: Code[100];
+    begin
+        if "No." = '' then
+            NoSeriesMgt.InitSeries('COPILOTJOB', "No.", Today, NewNo, SeriesCode);
+        "No." := NewNo;
+    end;
+
 }
