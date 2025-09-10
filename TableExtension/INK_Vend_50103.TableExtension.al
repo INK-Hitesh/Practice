@@ -9,4 +9,5 @@ tableextension 50103 INK_Vend extends Vendor
         }
         #endregion
     }
+
 }
