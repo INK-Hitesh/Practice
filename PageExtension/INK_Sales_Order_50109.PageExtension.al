@@ -14,8 +14,6 @@ pageextension 50109 INK_Sales_Order extends "Sales Order List"
                 var
                     SalesHeader: Record "Sales Header";
                 begin
-                    // SalesHeader.Reset();
-                    // SalesHeader.SetRange("No.", Rec."No.");
                     Report.Run(Report::"Sales Word Layout", false, false, Rec);
                 end;
             }
