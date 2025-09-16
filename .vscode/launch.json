@@ -14,6 +14,25 @@
             "enableLongRunningSqlStatements": true,
             "enableSqlInformationDebugger": true,
             "tenant": "773686ab-6356-4954-8d4b-c3fc4af6140b"
+        },
+        {
+            "name": "AL: Generated Download Symbols request",
+            "request": "launch",
+            "type": "al",
+            "environmentType": "Sandbox",
+            "environmentName": "Sandbox_Hetal",
+            "tenant": "773686ab-6356-4954-8d4b-c3fc4af6140b"
+        },
+        {
+            "name": "AL: Generated Attach request",
+            "request": "attach",
+            "type": "al",
+            "environmentType": "Sandbox",
+            "environmentName": "Sandbox_Hetal",
+            "sessionId": 63105,
+            "breakOnNext": "WebClient",
+            "breakOnError": "ExcludeTry",
+            "tenant": "773686ab-6356-4954-8d4b-c3fc4af6140b"
         }
     ]
 }

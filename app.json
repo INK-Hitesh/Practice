@@ -1,32 +1,39 @@
 {
-  "id": "07382dfb-8276-4cec-b823-3e3dbe6db2a0",
-  "name": "Practice",
-  "publisher": "Default Publisher",
-  "version": "1.0.0.0",
-  "brief": "",
-  "description": "",
-  "privacyStatement": "",
-  "EULA": "",
-  "help": "",
-  "url": "",
-  "logo": "",
-  "dependencies": [],
-  "screenshots": [],
-  "platform": "1.0.0.0",
-  "application": "26.0.0.0",
-  "idRanges": [
-    {
-      "from": 50100,
-      "to": 50149
-    }
-  ],
-  "resourceExposurePolicy": {
-    "allowDebugging": true,
-    "allowDownloadingSource": true,
-    "includeSourceInSymbolFile": true
-  },
-  "runtime": "15.0",
-  "features": [
-    "NoImplicitWith"
-  ]
+    "id": "07382dfb-8276-4cec-b823-3e3dbe6db2a0",
+    "name": "Practice",
+    "publisher": "Default Publisher",
+    "version": "1.0.0.0",
+    "brief": "",
+    "description": "",
+    "privacyStatement": "",
+    "EULA": "",
+    "help": "",
+    "url": "",
+    "logo": "",
+    "dependencies": [
+        {
+            "id": "b3780cd9-f8f8-4a83-a4d5-0c2ad87b28af",
+            "name": "Sustainability",
+            "publisher": "Microsoft",
+            "version": "26.4.37194.37425"
+        }
+    ],
+    "screenshots": [],
+    "platform": "1.0.0.0",
+    "application": "26.4.37194.37425",
+    "idRanges": [
+        {
+            "from": 50100,
+            "to": 50149
+        }
+    ],
+    "resourceExposurePolicy": {
+        "allowDebugging": true,
+        "allowDownloadingSource": true,
+        "includeSourceInSymbolFile": true
+    },
+    "runtime": "15.0",
+    "features": [
+        "NoImplicitWith"
+    ]
 }

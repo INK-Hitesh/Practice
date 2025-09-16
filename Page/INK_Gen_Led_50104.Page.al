@@ -67,4 +67,12 @@ page 50104 INK_GenLedEnt
             }
         }
     }
+
+    procedure EncodePassword(var Password: Text[365])
+    var
+        EncrpyptedPassword: Text[365];
+    begin
+        EncrpyptedPassword := Encrypt(Password);
+        Password := EncrpyptedPassword;
+    end;
 }
